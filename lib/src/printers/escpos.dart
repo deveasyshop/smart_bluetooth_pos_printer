@@ -24,7 +24,7 @@ class EscPosPrinter<T> extends GenericPrinter<T> {
     final decodedImage = decodeImage(image)!;
 
     final converted = toPixel(
-        ImageData(width: decodedImage.width, height: decodedImage.height),
+        ImageDataBT(width: decodedImage.width, height: decodedImage.height),
         paperWidth: width,
         dpi: dpi,
         isTspl: false);

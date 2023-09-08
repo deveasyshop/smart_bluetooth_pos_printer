@@ -17,12 +17,12 @@ public final class GeneratedPluginRegistrant {
   public static void registerWith(@NonNull FlutterEngine flutterEngine) {
     try {
       flutterEngine.getPlugins().add(new dev.fluttercommunity.plus.network_info.NetworkInfoPlusPlugin());
-    } catch(Exception e) {
+    } catch (Exception e) {
       Log.e(TAG, "Error registering plugin network_info_plus, dev.fluttercommunity.plus.network_info.NetworkInfoPlusPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new com.smart.smart_bluetooth_pos_printer.FlutterPosPrinterPlatformPlugin());
-    } catch(Exception e) {
+    } catch (Exception e) {
       Log.e(TAG, "Error registering plugin smart_bluetooth_pos_printer, com.smart.smart_bluetooth_pos_printer.FlutterPosPrinterPlatformPlugin", e);
     }
   }

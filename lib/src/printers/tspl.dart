@@ -3,8 +3,8 @@ import 'dart:typed_data';
 
 import 'package:smart_bluetooth_pos_printer/printer.dart';
 import 'package:image/image.dart';
+import 'package:smart_bluetooth_pos_printer/smart_bluetooth_pos_printer.dart';
 
-import '../utils.dart';
 
 class ImageRaster {
   ImageRaster({required this.data, required this.width, required this.height});
@@ -193,7 +193,7 @@ class TsplPrinter<T> extends GenericPrinter<T> {
     final decodedImage = decodeImage(image)!;
     final rasterizeImage = _toRaster(decodedImage, dpi: int.parse(dpi));
     final converted = toPixel(
-        ImageData(width: decodedImage.width, height: decodedImage.height),
+        ImageDataBT(width: decodedImage.width, height: decodedImage.height),
         paperWidth: int.parse(_sizeWidth),
         dpi: int.parse(dpi),
         isTspl: true);
@@ -233,7 +233,7 @@ class TsplPrinter<T> extends GenericPrinter<T> {
     final int widthPx = image.width;
     final int heightPx = image.height;
     final int widthBytes = widthPx ~/ 8; // one byte is 8 bits
-    final List<int> imageBytes = image.getBytes(format: Format.argb);
+    final List<int> imageBytes = image.getBytes(order: ChannelOrder.argb);
 
     List<int> monoPixel = [];
     for (int i = 0; i < imageBytes.length; i += 4) {

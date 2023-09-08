@@ -1,13 +1,13 @@
-class ImageData {
+class ImageDataBT {
   final int width;
   final int height;
-  ImageData({
+  ImageDataBT({
     required this.width,
     required this.height,
   });
 }
 
-ImageData toPixel(ImageData image, {required int paperWidth, required int dpi, required bool isTspl}) {
+ImageDataBT toPixel(ImageDataBT image, {required int paperWidth, required int dpi, required bool isTspl}) {
   final double mmToInch = 0.036;
 
   int targetWidthPx = (paperWidth.toDouble() * dpi.toDouble() * mmToInch).toInt();
@@ -21,5 +21,5 @@ ImageData toPixel(ImageData image, {required int paperWidth, required int dpi, r
   } else {
     targetHeightPx = (image.height * widthRatio).toInt();
   }
-  return ImageData(width: targetWidthPx, height: targetHeightPx);
+  return ImageDataBT(width: targetWidthPx, height: targetHeightPx);
 }
